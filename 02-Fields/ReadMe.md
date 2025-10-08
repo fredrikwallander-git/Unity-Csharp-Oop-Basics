@@ -32,6 +32,15 @@ Output:200
 - Create a new project or re-use the one from 01
 - Create a class named Player ( Do NOT inherit from `MonoBehaviour` in this one )
    - Add a public field of type int named gold
+   - Add [Serializable] on top of the class in order for Unity to be able to display it in the inspector.
+
+````
+[Serializable]
+public class Player { 
+
+}
+````
+
 - Create a class named PlayerController ( This should inherit from `MonoBehaviour` ) 
 - Define a private variable of type Player in the `PlayerController`
 - Create and assign a new instance of Type Player to the variable in the `Start()` method
