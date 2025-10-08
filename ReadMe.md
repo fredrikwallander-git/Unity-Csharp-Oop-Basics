@@ -1,8 +1,8 @@
-﻿# Unity and C# OOP Basics
+# Unity + C# OOP Course
 
-Hi there!
-I see you came here to learn about Unity and OOP (Objected Oriented Programming) in C#.
+This repository teaches both C# OOP fundamentals and Unity basics.
 
-## Goal
-
-Learn enough about Unity and C# OOP just enough to get you started in your coding and game development journey.
+## Structure
+- 01-csharp-oop-basics: C# console lessons
+- 02-unity-basics: Unity scripting lessons
+- 03-oop-in-unity: Applying OOP inside Unity
