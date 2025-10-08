@@ -5,14 +5,15 @@
 This exercise asks you to define a Method that reads a Value from its Field.
 
 ### Instructions
+
 - Create or re-use the Unity project from before
 - Create a Person Class
 - Give it a Field for their `Name`
 - Give it a Method named `Greeting()`
    - It should print "Hello, I'm Fred!" (or whatever their name is) to the Console
 - Create a People class and let it inherit from MonoBehaviour 
-- Create an Array field called People and give it a size of 3
-- Add three random names in the `Start()` method to the array using the .member-of access to the Name field
+- Add an Array field called People and give it a size of 3
+- Create three People and add three random names in the `Start()` method to the array using the .member-of access to the Name field
 - After that invoke `Greeting()` on all People
 - Make sure to add the People class to a game object and hit play
 
@@ -21,14 +22,14 @@ This exercise asks you to define a Method that reads a Value from its Field.
 This exercise asks you to define a Method that changes a class Field.
 
 ### Instructions
-- 
+
 - Create or re-use the Unity project from before
 - Create a House Class
   - It has a door that can be open or closed (bool)
   - It has a method OpenDoor that opens the door
   - It has a method CloseDoor that closes the door
 - Create a Street `MonoBehaviour` class and 2 house fields
-- Create two houses blueHouse and redHouse
+- In the `Start()`method create two houses blueHouse and redHouse
   - Print for both houses whether the door is open (should be false and false)
 - Open the Door at blueHouse and redHouse
   - Print for both houses whether the door is open (should be true and true)
@@ -49,7 +50,7 @@ Input: 301
 Output: 5 level and 1 Experience.
 ````
 
-Instructions
+### Instructions
 
 - For this, create a console project named LevelUp
 - Define a class named Player
