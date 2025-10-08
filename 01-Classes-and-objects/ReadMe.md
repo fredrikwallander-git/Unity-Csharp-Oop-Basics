@@ -23,7 +23,7 @@ Let´s modify the `Start` method like so:
 
 ```
 void Start() {
-    Debug.Log("I am a Person!")
+    Debug.Log("I am a Person!");
 } 
 ```
 
