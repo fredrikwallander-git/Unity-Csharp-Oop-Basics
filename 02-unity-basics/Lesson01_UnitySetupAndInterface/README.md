@@ -115,3 +115,14 @@ public class RotateObject : MonoBehaviour
 ```
 - Press ▶️ (Play) — your cube should rotate!
 
+---
+
+## Folder Structure Recommendation
+```
+Assets/
+┣ Scenes/
+┣ Scripts/
+┣ Materials/
+┣ Prefabs/
+┗ Textures/
+```
