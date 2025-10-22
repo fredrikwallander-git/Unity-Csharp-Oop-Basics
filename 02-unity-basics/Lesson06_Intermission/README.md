@@ -174,7 +174,7 @@ Clicking it will execute the `Jump` method in the `PlayerController` script.
 
 Events enable a `class` or `object` to notify other `classes` or `objects` when something of interest occurs. The class that sends (or **raises**) the event is called the **publisher** and the classes that receive (or **handle**) the event are called **subscribers**.
 
-Create a static and all accessible event:
+Create a static and all accessible event that has a parameter of int:
 
 ```csharp
 public static event System.Action<int> OnCoinCollected;
@@ -184,7 +184,7 @@ Which can then be subscribed to: (using the `+=` operator)
 
 ```csharp
 OnCoinCollected += MethodThatUpdatesCoinsText; 
-// or use short-hand lambda...  x += () => UpdateCoinsText
+// or use short-hand lambda...  x += (amount) => UpdateCoinsText
 ```
 
 And to unsubscribe: (using the `-=` operator)
@@ -231,7 +231,7 @@ Use `[ContextMenu("Spawn Enemy")]` so you can spawn one manually in the Editor.
 Hint: Maybe the enemy can just die by simply being `Destroy(enemy, 3f)` after 3 seconds of spawning.
 
 ---
-### Exercise 3 — The Debug Menu
+### Exercise 3 - The Debug Menu
 
 - Create a `GameManager` and `Player` script.
 - Add a `[ContextMenu("Reset Game")]` method that resets the score and repositions the player.
