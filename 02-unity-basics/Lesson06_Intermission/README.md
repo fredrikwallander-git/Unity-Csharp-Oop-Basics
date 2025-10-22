@@ -10,6 +10,7 @@ By the end of this intermission, students will:
 - Learn about **Unity attributes** like `[SerializeField]`, `[Header]`, `[Range]`, and how they affect the Inspector.
 - Be able to use both concepts to **write cleaner, more expressive gameplay code**.
 
+---
 ## Theory Summary
 
 ### Lambda Expressions
@@ -42,11 +43,10 @@ You can write:
 button.onClick.AddListener(() => Debug.Log("Clicked!"));
 ```
 
-`()=>` means: “a function that takes no parameters and returns nothing.”
+`()=>` means: “an anonymous function that takes no parameters and returns nothing.”
 If you have parameters, you can write them like this: `(x) => x * x`.
 
 ---
-
 ### Example: Filtering or Finding Objects
 
 ```csharp
@@ -63,7 +63,6 @@ Here:
 Tip: Use the `var` keyword to implicitly declare and initialize a variable and let the compiler explicitly figure out the correct type when compiling.
 
 ---
-
 ### Example: Inline Event Actions
 
 Imagine you have a coin that should disappear and update the score when collected:
@@ -100,7 +99,6 @@ public class ScoreUI : MonoBehaviour
 Here the lambda `(amount) => { ... }` makes a quick inline event handler without needing a separate named method.
 
 ---
-
 ## Attributes
 
 Attributes are small instructions you place above variables, classes, or methods to modify how Unity or the compiler treats them.
@@ -114,6 +112,7 @@ We will learn how to make them in time but, for now, it's best to get familiar w
 [Range(1, 10)] public float jumpHeight;
 ```
 
+---
 ### Commonly Used Unity Attributes
 
 | Attribute                         | Purpose                                       |
@@ -127,7 +126,6 @@ We will learn how to make them in time but, for now, it's best to get familiar w
 | `[ContextMenu("Action Name")]`    | Adds a button in the component’s context menu |
 
 ---
-
 ## Example: Player Setup Script
 ```csharp
 using UnityEngine;
@@ -198,7 +196,6 @@ OnCoinCollected -= MethodThatUpdatesCoinsText;
 The class that owns the event can then trigger (or `Invoke`) it and the subscribers will then be notified and can act as they see fit to the event.
 
 ---
-
 ## Key Takeaways
 
 | Concept                | Description                                            |
@@ -209,7 +206,6 @@ The class that owns the event can then trigger (or `Invoke`) it and the subscrib
 | **[ContextMenu]**      | Adds quick actions for debugging and testing           |
 
 ---
-
 ## Exercises
 
 ### Exercise 1 - The Collector’s Reward
@@ -223,7 +219,6 @@ Create a collectable item and update a hypothetical managers visual output.
 Bonus: Use `[Range]` on the coin’s spin speed so it’s adjustable in the Inspector.
 
 ---
-
 ### Exercise 2 - Enemy Factory
 
 - Create an `Enemy` which has a static event `OnDeath`.
@@ -236,7 +231,6 @@ Use `[ContextMenu("Spawn Enemy")]` so you can spawn one manually in the Editor.
 Hint: Maybe the enemy can just die by simply being `Destroy(enemy, 3f)` after 3 seconds of spawning.
 
 ---
-
 ### Exercise 3 — The Debug Menu
 
 - Create a `GameManager` and `Player` script.
