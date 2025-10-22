@@ -1,4 +1,4 @@
-# 06 - Basic UI
+# 08 - Mini Project: Basic Game
 
 ## Learning Goals
 Lesson objectives here.
