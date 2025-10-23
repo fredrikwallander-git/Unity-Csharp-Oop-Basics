@@ -2,7 +2,7 @@
 
 Let's go through a couple more things before we wrap this chapter up with your last big exercise!
 
-### Physics Overview
+## Physics Overview
 
 Unity handles physics through components:
 
@@ -177,8 +177,6 @@ Create a playable mini version of a classic retro game such as..
 
 .. or others.
 
----
-
 ## Requirements
 
 Each project should feature:
@@ -204,16 +202,12 @@ Each project should feature:
 - Add a pause menu with resume/restart options.
 - Include music and sound effects.
 
----
-
 ## Submission
 
 Each student should submit:
 - A `GitHub` repository link.
 - A **_short_** gameplay video or gif (20-30s).
 - A README.md describing the chosen game and implemented features.
-
----
 
 ## Remember
 
