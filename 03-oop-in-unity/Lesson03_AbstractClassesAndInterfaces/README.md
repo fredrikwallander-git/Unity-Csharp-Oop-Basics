@@ -122,13 +122,63 @@ That’s **powerful** - no inheritance needed, and it works with any class that 
 ## Abstract Class vs Interface — What’s the Difference?
 
 | Feature                        | Abstract Class     | Interface                                |
-| ------------------------------ | ------------------ | ---------------------------------------- |
-| Can contain logic & data       | ✅ Yes              | ❌ No                                     |
+| ------------------------------ | ------------------ |------------------------------------------|
+| Can contain logic & data       | ✅ Yes              | ❌ No (and yes)                           |
 | Can inherit from another class | ✅ Yes              | ❌ No                                     |
 | Can implement multiple         | ❌ Only one         | ✅ Multiple                               |
 | Purpose                        | Base functionality | Shared behavior across unrelated classes |
 | Example                        | `CharacterBase`    | `IDamageable`, `IInteractable`           |
 
+
+## Interfaces with Default Implementations (C# 8+)
+
+Traditionally, interfaces could only **define method signatures** - meaning any class implementing the interface had to provide the logic.
+
+Now, **with default interface methods**, you can provide a **shared implementation** directly _inside_ the interface.
+
+This can reduce boilerplate and allow versioning flexibility (adding new interface members without breaking existing code).
+
+## Example: Interface with Default Implementation
+
+You can now do this:
+```csharp
+public interface IDamageable
+{
+    int Health { get; set; }
+
+    void TakeDamage(int amount)
+    {
+        Health -= amount;
+        Debug.Log($"Took {amount} damage. Remaining health: {Health}");
+    }
+}
+```
+
+Then, a class can simply implement the interface without needing to write the body again:
+
+```csharp
+public class Enemy : MonoBehaviour, IDamageable
+{
+    public int Health { get; set; } = 50;
+}
+
+public class Player : MonoBehaviour, IDamageable
+{
+    public int Health { get; set; } = 100;
+
+    // Optionally override
+    public void TakeDamage(int amount)
+    {
+        Health -= amount;
+        Debug.Log($"Player screams and loses {amount} HP! Remaining: {Health}");
+    }
+}
+```
+
+Notice that:
+
+- `Enemy` doesn’t implement `TakeDamage()` explicitly → it uses the **default one** from the interface.
+- `Player` provides a **custom override**, just like inheritance but more flexible.
 
 ## Using Both Together
 
@@ -171,6 +221,47 @@ Now both `Door` and `Chest`:
 
 - Use shared helper logic (`PlaySound`)
 - Are accessible through a single interface (`IInteractable`)
+
+## Example: Default Reset Behavior
+
+```csharp
+public interface IResettable
+{
+    void ResetPosition(Transform transform)
+    {
+        transform.position = Vector3.zero;
+    }
+}
+```
+
+Now you can do this:
+
+```csharp
+public class Enemy : MonoBehaviour, IResettable
+{
+    private void Start()
+    {
+        ResetPosition(transform); // uses the default implementation
+    }
+}
+
+public class Boss : MonoBehaviour, IResettable
+{
+    public void ResetPosition(Transform transform)
+    {
+        transform.position = new Vector3(10, 5, 0); // override default
+    }
+}
+```
+
+---
+
+### A Few Important Notes
+
+- Unity **does not show** interface members (default or not) in the Inspector.
+- If you use `default interface methods` on `MonoBehaviour` components, you must call them explicitly (e.g., `((IResettable)this).ResetPosition(transform)` if you need to ensure the interface version runs).
+- You can’t use instance fields in an interface - only **properties** and **auto-implemented methods** with logic.
+- Unity serialization won’t store values declared in interfaces - those belong to implementing classes or ScriptableObjects.
 
 ---
 
